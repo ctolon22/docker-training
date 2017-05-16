@@ -1,31 +1,13 @@
-var os = require('os');
-var koa = require('koa');
-var redis = require('redis');
+var express = require('express');
 
-var ifaces = os.networkInterfaces();
-var app = koa();
+var port = 8000;
+var app = express();
 
-/* redis */
-var host = 'redis';
-var port = process.env.REDIS_PORT || 6379;
-var client = redis.createClient(port, host);
-
-var port = 3000;
-
-app.use(function *(){
-  console.log('Say Hello world');
-	var content = 'Hello World ';
-
-	client.incr('counter', function(err, result) {
-    if (err) {
-      return next(err);
-    }
-
-    content += result;
-		console.log(result);
-  });
-
-	this.body = content;
+app.get('/', function(req, res) {
+  console.log('Say Hello world Funciona por Fin!');
+  var content = 'Hello World\n\n';
+	
+	res.send(content);
 });
 
 app.listen(port);

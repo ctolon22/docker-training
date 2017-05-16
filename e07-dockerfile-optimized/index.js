@@ -4,7 +4,7 @@ var port = 8000;
 var app = express();
 
 app.get('/', function(req, res) {
-  console.log('Say Hello world');
+  console.log('Say Hello world2');
   var content = 'Hello World\n\n';
 	
 	res.send(content);

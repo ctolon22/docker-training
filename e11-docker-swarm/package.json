@@ -1,16 +1,15 @@
 {
-  "name": "docker-node-swarm",
+  "name": "docker-node",
   "version": "1.0.0",
-  "description": "A docker swarm nodejs example",
+  "description": "A docker nodejs example",
   "main": "index.js",
-  "dependencies": {
-    "koa": "^1.2.4"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "author": "Everis",
-  "license": "ISC"
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }

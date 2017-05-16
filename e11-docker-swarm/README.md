@@ -69,6 +69,13 @@ docker service scale nodejs=2
 
 - Visualizer
 
+docker service create \
+  --name=viz \
+  --publish=8080:8080/tcp \
+  --constraint=node.role==manager \
+  --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
+  dockersamples/visualizer
+
 docker run -it -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock manomarks/visualizer
 
 - Create overlay Network services

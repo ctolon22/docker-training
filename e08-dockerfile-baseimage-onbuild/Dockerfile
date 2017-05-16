@@ -1,3 +1,3 @@
-FROM jdeiviz/node-base
+FROM node-base
 
 EXPOSE 8000
