@@ -7,6 +7,7 @@
 ## Compilar imagen
 docker build -t figlet .
 
+### Con proxy
 docker build --build-arg http_proxy=http://10.110.8.42:8080 --build-arg https_proxy=https://10.110.8.42:8080 -t figlet .
 
 ## Arrancar figlet con diferentes casos

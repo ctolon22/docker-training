@@ -1,5 +1,6 @@
 var express = require('express');
 var redis = require('redis');
+var os = require('os');
 
 var port_node = 8000;
 var app = express();
@@ -10,8 +11,8 @@ var port_redis = process.env.REDIS_PORT || 6379;
 var client = redis.createClient(port_redis, host);
 
 app.get('/', function(req, res, next) {
-  console.log('Say Hello world');
-  var content = 'Hello World\n\n';
+  var content = '<p>Hello World</p>';
+  content += '<p>Host: ' + os.hostname() + '</p>';
 	
   client.incr('counter', function(err, result) {
     if (err) {
@@ -19,8 +20,8 @@ app.get('/', function(req, res, next) {
       return next(err);
     }
 
-    content += result;
-		console.log(result);
+    content += '<p>' + result + '</p>';
+		console.log(content);
 
     res.send(content);
   });

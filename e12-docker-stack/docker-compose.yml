@@ -1,0 +1,31 @@
+version: "3"
+services:
+  web:
+    image: 127.0.0.1:5000/node-swarm:v1
+    ports:
+      - "8000:8000"
+    networks:
+      - backend-swarm
+    deploy:
+      replicas: 5
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+      restart_policy:
+        condition: on-failure
+  redis:
+    image: redis
+    networks:
+      - backend-swarm
+    volumes:
+      - "redis-data-swarm:/data"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+networks:
+  backend-swarm:
+
+volumes:
+  redis-data-swarm:

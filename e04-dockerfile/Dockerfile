@@ -1,8 +1,7 @@
 FROM ubuntu
 
 RUN apt-get update
-RUN apt-get install -y figlet
-RUN apt-get install -y lolcat
+# Instalar figlet
 
 ENTRYPOINT ["figlet", "-f", "script"]
-CMD ["Hello World"]
+# Parámetro por defecto "Hello World"

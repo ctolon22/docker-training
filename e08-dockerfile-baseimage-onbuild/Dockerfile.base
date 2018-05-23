@@ -6,13 +6,13 @@ WORKDIR /src
 ONBUILD ARG NODE_ENV
 ONBUILD ENV NODE_ENV $NODE_ENV
 
-ONBUILD COPY package.json /src
+COPY package.json /src
 
-ONBUILD RUN npm config set proxy http://10.110.8.42:8080 && \
-	    npm config set https-proxy http://10.110.8.42:8080
+# RUN npm config set proxy http://10.110.8.42:8080 && \
+#	    npm config set https-proxy http://10.110.8.42:8080
 
-ONBUILD RUN npm install
+RUN npm install
 
-ONBUILD COPY . /src
+COPY . /src
 
 CMD [ "npm", "start" ]

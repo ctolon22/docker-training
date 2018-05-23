@@ -30,3 +30,8 @@ docker container prune
 
 ## Listar todos los comandos de contenedores
 docker container
+
+## Arrancar diferentes versiones de Java
+docker run --rm java:7 java -version    
+docker run --rm java:8 java -version    
+docker run --rm java:9 java -version    

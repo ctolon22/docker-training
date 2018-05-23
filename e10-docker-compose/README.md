@@ -5,7 +5,6 @@
 - Deben estar conectados a la misma red
 
 ## Compilar
-
 docker-compose build
 
 ## Ejecutar
